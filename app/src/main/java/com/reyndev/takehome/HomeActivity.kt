@@ -22,7 +22,7 @@ class HomeActivity : AppCompatActivity() {
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-        adapter = TakeHomeRecyclerAdapter()
+        adapter = TakeHomeRecyclerAdapter(this)
 
         binding.recyclerView.adapter = adapter
 
