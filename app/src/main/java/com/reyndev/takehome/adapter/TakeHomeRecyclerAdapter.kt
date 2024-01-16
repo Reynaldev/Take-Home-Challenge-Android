@@ -2,6 +2,7 @@ package com.reyndev.takehome.adapter
 
 import android.content.Context
 import android.content.Intent
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.DiffUtil
@@ -12,7 +13,7 @@ import com.reyndev.takehome.DetailActivity
 import com.reyndev.takehome.databinding.CharacterListItemBinding
 import com.reyndev.takehome.model.RickMorty
 
-class TakeHomeRecyclerAdapter(private val ctx: Context)
+class TakeHomeRecyclerAdapter(private val onClick: (RickMorty) -> Unit)
     : ListAdapter<RickMorty, TakeHomeRecyclerAdapter.TakeHomeViewHolder>(DiffCallback) {
 
     class TakeHomeViewHolder(private val binding: CharacterListItemBinding)
@@ -31,10 +32,7 @@ class TakeHomeRecyclerAdapter(private val ctx: Context)
     override fun onBindViewHolder(holder: TakeHomeViewHolder, position: Int) {
         val item = getItem(position)
 
-        holder.itemView.setOnClickListener {
-            val detailIntent = Intent(ctx, DetailActivity::class.java)
-            ctx.startActivity(detailIntent)
-        }
+        holder.itemView.setOnClickListener { onClick(item) }
 
         holder.bind(item)
     }

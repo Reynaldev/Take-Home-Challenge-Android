@@ -1,5 +1,6 @@
 package com.reyndev.takehome
 
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
@@ -22,12 +23,17 @@ class HomeActivity : AppCompatActivity() {
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-        adapter = TakeHomeRecyclerAdapter(this)
+        adapter = TakeHomeRecyclerAdapter {
+            val detailIntent = Intent(this, DetailActivity::class.java)
+            detailIntent.putExtra(DetailActivity.INTENT_CHAR_ID, it.id)
+            startActivity(detailIntent)
+        }
 
         binding.recyclerView.adapter = adapter
 
-        viewModel.character.observe(this) {
-            Log.v(TAG, "Character name ${it.name}")
+        binding.btnSearch.setOnClickListener {
+            val searchIntent = Intent(this, SearchActivity::class.java)
+            startActivity(searchIntent)
         }
 
         viewModel.characters.observe(this) {

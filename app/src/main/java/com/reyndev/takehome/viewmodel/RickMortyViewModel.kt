@@ -48,6 +48,19 @@ class RickMortyViewModel : ViewModel() {
             }
         }
     }
+
+    fun getCharactersByName(name: String) {
+        viewModelScope.launch {
+            try {
+                _characters.value = TakeHomeService.takeHomeService.getCharactersByName(name).results
+
+                Log.v(TAG, "Successfully retrieve characters search list")
+            } catch (e: Exception) {
+                Log.wtf(TAG, "Failed to retrieve characters search list\n${e.message}")
+                e.printStackTrace()
+            }
+        }
+    }
 }
 
 class RickMortyViewModelFactory : ViewModelProvider.Factory {
