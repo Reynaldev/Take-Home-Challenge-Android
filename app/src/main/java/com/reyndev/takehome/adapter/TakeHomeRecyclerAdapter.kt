@@ -1,15 +1,11 @@
 package com.reyndev.takehome.adapter
 
-import android.content.Context
-import android.content.Intent
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
 import coil.load
-import com.reyndev.takehome.DetailActivity
 import com.reyndev.takehome.databinding.CharacterListItemBinding
 import com.reyndev.takehome.model.RickMorty
 

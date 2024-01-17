@@ -1,7 +1,5 @@
 package com.reyndev.takehome.model
 
-import com.squareup.moshi.Json
-
 data class RickMortyApiModel(
     val results: List<RickMorty>
 )
@@ -17,11 +15,11 @@ data class RickMorty(
 )
 
 data class Origin(
-    val name: String,
-    val url: String
+    val url: String,
+    val name: String
 )
 
 data class Location(
-    val name: String,
-    val url: String
+    val url: String,
+    val name: String
 )
