@@ -63,10 +63,6 @@ class DetailActivity : AppCompatActivity() {
                                     Favorite(
                                         rm.id,
                                         rm.name,
-                                        rm.species,
-                                        rm.gender,
-                                        rm.origin.name,
-                                        rm.location.name,
                                         rm.image
                                     )
                                 )
@@ -86,10 +82,6 @@ class DetailActivity : AppCompatActivity() {
                                     Favorite(
                                         rm.id,
                                         rm.name,
-                                        rm.species,
-                                        rm.gender,
-                                        rm.origin.name,
-                                        rm.location.name,
                                         rm.image
                                     )
                                 )
